@@ -39,5 +39,21 @@ public class Word {
 		this.meaning = meaning;
 	}
 	
+	/*
+	 * 1 * 		electric 	전기의, 전기를 생산하는
+	 * 2 * 		    pole 	기둥, 장대
+	 */
+	
+	@Override
+	public String toString() {
+		
+		String slevel ="";
+		for(int i = 0; i < level; i++)
+			slevel += "*";
+		String str = String.format("%-3s", slevel)
+				+ String.format("%15s", word) + "  " + meaning;
+		return str;
+	}
+	
 	
 }
