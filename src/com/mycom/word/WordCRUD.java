@@ -68,20 +68,33 @@ public class WordCRUD implements ICRUD {
 		ArrayList<Integer> idlist = new ArrayList<>();
 		int j = 0;
 		System.out.println("----------------------------");
-		for (int i = 0; i < list.size(); i++) {
-			String word = list.get(i).getWord();
-			if (!word.contains(keyword))
-				continue;
-			System.out.print((j + 1) + " ");
-			System.out.println(list.get(i).toString());
-			idlist.add(i);
-			j++;
+		if (keyword.length() > 1) {
+			for (int i = 0; i < list.size(); i++) {
+				String word = list.get(i).getWord();
+				if (!word.contains(keyword))
+					continue;
+				System.out.print((j + 1) + " ");
+				System.out.println(list.get(i).toString());
+				idlist.add(i);
+				j++;
+			}
+		}
+		else if(keyword.length() == 1) {
+			for (int i = 0; i < list.size(); i++) {
+				String word = list.get(i).getWord();
+				if (!word.substring(0,1).contains(keyword))
+					continue;
+				System.out.print((j + 1) + " ");
+				System.out.println(list.get(i).toString());
+				idlist.add(i);
+				j++;
+			}
 		}
 		System.out.println("----------------------------");
 
 		return idlist;
 	}
-	
+
 	public void listAll(int level) {
 		int j = 0;
 		System.out.println("----------------------------");
@@ -133,10 +146,11 @@ public class WordCRUD implements ICRUD {
 			BufferedReader br = new BufferedReader(new FileReader(fname));
 			String line;
 			int count = 0;
-			
+
 			while (true) {
 				line = br.readLine();
-				if(line == null) break;
+				if (line == null)
+					break;
 				String data[] = line.split("\\|");
 				int level = Integer.parseInt(data[0]);
 				String word = data[1];
@@ -145,8 +159,8 @@ public class WordCRUD implements ICRUD {
 				count++;
 			}
 			br.close();
-			System.out.println("==> " + count+ "개 로딩 완료!!");
-			
+			System.out.println("==> " + count + "개 로딩 완료!!");
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -156,7 +170,7 @@ public class WordCRUD implements ICRUD {
 	public void saveFile() {
 		try {
 			PrintWriter pr = new PrintWriter(new FileWriter("test.txt"));
-			for(Word one: list) {
+			for (Word one : list) {
 				pr.write(one.toFileString() + "\n");
 			}
 			pr.close();
@@ -165,19 +179,19 @@ public class WordCRUD implements ICRUD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public void searchLevel() {
 		System.out.print("==> 원하는 레벨은? (1~3): ");
 		int level = s.nextInt();
-		listAll(level);	
+		listAll(level);
 	}
 
 	public void searchWord() {
 		System.out.print("==> 원하는 단어는?: ");
 		String keyword = s.next();
-		listAll(keyword);		
+		listAll(keyword);
 	}
 
 }
