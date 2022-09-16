@@ -21,20 +21,20 @@ public class WordCRUD implements ICRUD {
 
 	@Override
 	public Object add() {
-		System.out.print("=> ³­ÀÌµµ(1,2,3) & »õ ´Ü¾î ÀÔ·Â: ");
+		System.out.print("=> ë‚œì´ë„(1,2,3) & ìƒˆ ë‹¨ì–´ ì…ë ¥: ");
 		int level = s.nextInt();
 		String word = s.nextLine();
 		// 1 driveway
-		System.out.print("¶æ ÀÔ·Â: ");
+		System.out.print("ëœ» ì…ë ¥: ");
 		String meaning = s.nextLine();
-		// Â÷°í ÁøÀÔ·Î
+		// ì°¨ê³  ì§„ì…ë¡œ
 		return new Word(0, level, word, meaning);
 	}
 
 	public void addWord() {
 		Word one = (Word) add();
 		list.add(one);
-		System.out.println("»õ ´Ü¾î°¡ ´Ü¾îÀå¿¡ Ãß°¡µÇ¾ú½À´Ï´Ù.");
+		System.out.println("ìƒˆ ë‹¨ì–´ê°€ ë‹¨ì–´ì¥ì— ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 
 	@Override
@@ -110,35 +110,35 @@ public class WordCRUD implements ICRUD {
 	}
 
 	public void updateItem() {
-		System.out.print("=> ¼öÁ¤ÇÒ ´Ü¾î °Ë»ö: ");
+		System.out.print("=> ìˆ˜ì •í•  ë‹¨ì–´ ê²€ìƒ‰: ");
 		String keyword = s.next();
 		ArrayList<Integer> idlist = this.listAll(keyword);
-		System.out.print("=> ¼öÁ¤ÇÒ ¹øÈ£ ¼±ÅÃ: ");
+		System.out.print("=> ìˆ˜ì •í•  ë²ˆí˜¸ ì„ íƒ: ");
 		int id = s.nextInt();
 		s.nextLine();
 
-		System.out.print("=> ¶æ ÀÔ·Â: ");
+		System.out.print("=> ëœ» ì…ë ¥: ");
 		String meaning = s.nextLine();
 		Word word = list.get(idlist.get(id - 1));
 		word.setMeaning(meaning);
-		System.out.println("´Ü¾î°¡ ¼öÁ¤µÇ¾ú½À´Ï´Ù.");
+		System.out.println("ë‹¨ì–´ê°€ ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 
 	public void deleteItem() {
-		System.out.print("=> »èÁ¦ÇÒ ´Ü¾î °Ë»ö: ");
+		System.out.print("=> ì‚­ì œí•  ë‹¨ì–´ ê²€ìƒ‰: ");
 		String keyword = s.next();
 		ArrayList<Integer> idlist = this.listAll(keyword);
-		System.out.print("=> »èÁ¦ÇÒ ¹øÈ£ ¼±ÅÃ: ");
+		System.out.print("=> ì‚­ì œí•  ë²ˆí˜¸ ì„ íƒ: ");
 		int id = s.nextInt();
 		s.nextLine();
 
-		System.out.print("=> Á¤¸» »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?(Y/N): ");
+		System.out.print("=> ì •ë§ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?(Y/N): ");
 		String ans = s.next();
 		if (ans.equalsIgnoreCase("y")) {
 			list.remove((int) idlist.get(id - 1));
-			System.out.println("´Ü¾î°¡ »èÁ¦µÇ¾ú½À´Ï´Ù.");
+			System.out.println("ë‹¨ì–´ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
 		} else
-			System.out.println("Ãë¼ÒµÇ¾ú½À´Ï´Ù.");
+			System.out.println("ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 
 	public void loadFile() {
@@ -159,7 +159,7 @@ public class WordCRUD implements ICRUD {
 				count++;
 			}
 			br.close();
-			System.out.println("==> " + count + "°³ ·Îµù ¿Ï·á!!");
+			System.out.println("==> " + count + "ê°œ ë¡œë”© ì™„ë£Œ!!");
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -169,12 +169,12 @@ public class WordCRUD implements ICRUD {
 
 	public void saveFile() {
 		try {
-			PrintWriter pr = new PrintWriter(new FileWriter("test.txt"));
+			PrintWriter pr = new PrintWriter(new FileWriter("Dictionary.txt"));
 			for (Word one : list) {
 				pr.write(one.toFileString() + "\n");
 			}
 			pr.close();
-			System.out.println("==> µ¥ÀÌÅÍ ÀúÀå ¿Ï·á!!");
+			System.out.println("==> ë°ì´í„° ì €ì¥ ì™„ë£Œ!!");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -183,13 +183,13 @@ public class WordCRUD implements ICRUD {
 	}
 
 	public void searchLevel() {
-		System.out.print("==> ¿øÇÏ´Â ·¹º§Àº? (1~3): ");
+		System.out.print("==> ì›í•˜ëŠ” ë ˆë²¨ì€? (1~3): ");
 		int level = s.nextInt();
 		listAll(level);
 	}
 
 	public void searchWord() {
-		System.out.print("==> ¿øÇÏ´Â ´Ü¾î´Â?: ");
+		System.out.print("==> ì›í•˜ëŠ” ë‹¨ì–´ëŠ”?: ");
 		String keyword = s.next();
 		listAll(keyword);
 	}
