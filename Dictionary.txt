@@ -26,3 +26,7 @@
 1|unfortunate|불운한
 1|branch|나뭇가지
 1|trim|다듬다
+1|supply|공급하다
+2|astonishing|놀라운
+3|administration|행정부
+3|senior-executive|고위간부
