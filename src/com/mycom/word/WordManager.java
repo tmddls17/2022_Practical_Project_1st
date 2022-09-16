@@ -30,7 +30,10 @@ public class WordManager {
 		wordCRUD.loadFile();
 		while(true) {
 			int menu = selectMenu();
-			if(menu == 0) break;
+			if(menu == 0) {
+				System.out.println("\t*** 이용해주셔서 감사합니다. ***");
+				break;
+			}
 			else if(menu == 1) {
 				//list
 				wordCRUD.listAll();
