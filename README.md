@@ -44,3 +44,6 @@
 
 #### exit()
 ![exit](https://github.com/tmddls17/2022_Practical_Project_1st/blob/master/running%20screenshots/exit().png)
+
+#### saveFile()
+![saveFile](https://github.com/tmddls17/2022_Practical_Project_1st/blob/master/running%20screenshots/saveFile().png)
