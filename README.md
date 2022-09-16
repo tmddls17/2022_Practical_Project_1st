@@ -25,9 +25,9 @@
 ![deleteWord](https://github.com/tmddls17/2022_Practical_Project_1st/blob/master/running%20screenshots/deleteWord().png)
 
 #### saveWord()
-#####saveWord  
+##### saveWord  
 ![saveWord](https://github.com/tmddls17/2022_Practical_Project_1st/blob/master/running%20screenshots/saveWord()_1.png)  
-#####Result of deleteWord + saveWord + listAll  
+##### Result of deleteWord + saveWord + listAll  
 ![deleteWord + saveWord + listAll](https://github.com/tmddls17/2022_Practical_Project_1st/blob/master/running%20screenshots/listAll()_deleteWord()_saveWord().png)
 
 #### searchWord()
@@ -37,9 +37,9 @@
 ![searchLevel](https://github.com/tmddls17/2022_Practical_Project_1st/blob/master/running%20screenshots/searchWord().png)
 
 #### listAll()
-#####listAll without loadWord  
+##### listAll without loadWord  
 ![listAll_without_loadWord](https://github.com/tmddls17/2022_Practical_Project_1st/blob/master/running%20screenshots/listAll().png)  
-#####listAll with loadWord  
+##### listAll with loadWord  
 ![listAll_with_loadWord](https://github.com/tmddls17/2022_Practical_Project_1st/blob/master/running%20screenshots/listAll()_2.png)
 
 #### exit()
